@@ -1,0 +1,15 @@
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+            header.yt_video:
+              style: vertical
+              type: text
+              label: Youtube Video
+              placeholder: https://www.youtube.com/watch?v=IKlvQyLxygk
+              validate:
+                type: url
