@@ -1,0 +1,199 @@
+name: "Video-Form"
+version: "0.0.1"
+description: "This plugin adds an Youtube video form field to the content tab."
+icon: "play-circle-o"
+author:
+  name: "Wolfgang Hollaus"
+  email: "wh@hollaus-it.at"
+  url: "http://hollaus-it.at"
+homepage: "https://github.com/whollaus/Grav-Plugin-Video-Form"
+keywords: ["grav","youtube", "plugin"]
+bugs: "https://github.com/whollaus/Grav-Plugin-Video-Form/issues"
+license: "MIT"
+dependencies:
+    - { name: grav, version: '>=1.3.8' }
+    - { name: admin, version: '>=1.6.6' }
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    templates:
+      type: select
+      size: large
+      label: "Available in this Templates"
+      classes: fancy
+      multiple: true
+      '@data-options': '\Grav\Common\Page\Pages::Types'
+      validate:
+        type: commalist
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        youtube:
+          type: tab
+          title: "Youtube"
+          fields:
+            yt_enabled:
+              type: toggle
+              label: 'Enabled'
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_parameters:
+              type: section
+              title: "Parameters"
+              underline: true
+            yt_autoplay:
+              type: toggle
+              label: "Autoplay"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_cc_load_policy:
+              type: toggle
+              label: "CC Load Policy"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_color:
+              type: toggle
+              label: "Color"
+              default: "red"
+              options:
+                red: "red"
+                white: "white"
+              validate:
+                type: string
+            yt_controls:
+              type: toggle
+              label: "Controls"
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_disablekb:
+              type: toggle
+              label: "Disable keyboard controls"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_enablejsapi:
+              type: toggle
+              label: "Enable JS API"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_fs:
+              type: toggle
+              label: "Fullscreen button"
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_hl:
+              type: text
+              label: "Player interface language"
+              default: "en"
+              placeholder: 'e.g. en or en-us'
+              size: small
+              placeholder: "en"
+            yt_iv_load_policy:
+              type: toggle
+              label: "Load Policy"
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                3: PLUGIN_ADMIN.NO
+              validate:
+                type: int
+            yt_loop:
+              type: toggle
+              label: "Loop"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_modestbranding:
+              type: toggle
+              label: "Youtube Branding"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.NO
+                0: PLUGIN_ADMIN.YES
+              validate:
+                type: bool
+            yt_origin:
+              type: toggle
+              label: "Origin"
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_rel:
+              type: toggle
+              label: "Related videos"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            yt_showinfo:
+              type: toggle
+              label: "Showinfo"
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+
+        #vimeo:
+        #  type: tab
+        #  title: "Vimeo"
+        #  fields:
+        #    v_enabled:
+        #      type: toggle
+        #      label: "Enabled"
+        #      default: 0
+        #      options:
+        #        1: PLUGIN_ADMIN.YES
+        #        0: PLUGIN_ADMIN.NO
+        #      validate:
+        #        type: bool

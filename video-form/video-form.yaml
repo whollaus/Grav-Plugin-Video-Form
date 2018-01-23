@@ -1,0 +1,20 @@
+enabled: true
+templates:
+  - default
+  - modular
+  - item
+yt_enabled: true
+yt_autoplay: false
+yt_cc_load_policy: false
+yt_color: "red"
+yt_controls: true
+yt_disablekb: false
+yt_enablejsapi: false
+yt_fs: true
+yt_hl: "en"
+yt_iv_load_policy: true
+yt_loop: false
+yt_modestbranding: false
+yt_origin: true
+yt_rel: false
+yt_showinfo: true
