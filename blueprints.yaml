@@ -1,13 +1,13 @@
 name: "Video-Form"
 version: "0.0.1"
-description: "This plugin adds an Youtube video form field to the content tab."
+description: "This plugin adds an Youtube/mp4 video form field to the content tab."
 icon: "play-circle-o"
 author:
   name: "Wolfgang Hollaus"
   email: "wh@hollaus-it.at"
   url: "http://hollaus-it.at"
 homepage: "https://github.com/whollaus/Grav-Plugin-Video-Form"
-keywords: ["grav","youtube", "plugin"]
+keywords: ["grav","youtube", "plugin","mp4"]
 bugs: "https://github.com/whollaus/Grav-Plugin-Video-Form/issues"
 license: "MIT"
 dependencies:
@@ -183,6 +183,64 @@ form:
               validate:
                 type: bool
 
+        upload_video:
+          type: tab
+          title: "Upload Form"
+          fields:
+            uv_enabled:
+              type: toggle
+              label: "Enabled"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            uv_autoplay:
+              type: toggle
+              label: "Autoplay"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            uv_controls:
+              type: toggle
+              label: "Controls"
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            uv_loop:
+              type: toggle
+              label: "Loop"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            uv_muted:
+              type: toggle
+              label: "Muted"
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+            uv_playsinline:
+              type: toggle
+              label: "Playsinline"
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
 
         #vimeo:
         #  type: tab

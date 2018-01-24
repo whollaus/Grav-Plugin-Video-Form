@@ -1,0 +1,36 @@
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+
+            uv_columns:
+              type: columns
+              fields:
+                uv_column1:
+                  type: column
+                  fields:
+                    header.uv_video:
+                      style: vertical
+                      type: file
+                      label: Upload Video (mp4)
+                      multiple: false
+                      destination: 'user/data/videos'
+                      avoid_overwriting: false
+                      accept:
+                          - .mp4
+                uv_column2:
+                  type: column
+                  fields:
+                    header.uv_image:
+                      style: vertical
+                      type: file
+                      label: Upload Preview Image
+                      multiple: true
+                      destination: 'user/data/videos'
+                      avoid_overwriting: false
+                      accept:
+                        - image/*

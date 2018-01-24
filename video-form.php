@@ -67,6 +67,12 @@ class VideoFormPlugin extends Plugin
                     $blueprint->extend($extends, true);
                 }
 
+                if (!empty($this->config->get('plugins.video-form.uv_enabled'))) {
+                    $blueprints = new Blueprints(__DIR__ . '/blueprints/');
+                    $extends = $blueprints->get('upload');
+                    $blueprint->extend($extends, true);
+                }
+
             }
         }
 
@@ -84,8 +90,81 @@ class VideoFormPlugin extends Plugin
 
         $newtype = $page->template();
 
+        // Youtube Video
         if (!empty($this->config->get('plugins.video-form.yt_enabled')) && !empty($in_templates) && !empty($newtype) && in_array($newtype, $in_templates) && isset($page->header()->yt_video)) {
             $this->youtube($page);
+        }
+
+        // Upload Video
+        if (!empty($this->config->get('plugins.video-form.uv_enabled')) && !empty($in_templates) && !empty($newtype) && in_array($newtype, $in_templates) && isset($page->header()->uv_video)) {
+            $this->html5_video_player($page);
+        }
+
+    }
+
+    /**
+     * html5 Video Player
+     */
+    private function html5_video_player($page)
+    {
+
+        sort($page->header()->uv_video);
+
+        if (!empty($page->header()->uv_video[0]) && !empty($page->header()->uv_video[0]['path'])) {
+
+            $parameters = ' type="video/mp4" codeload="auto"';
+
+            if (empty($this->config->get('plugins.video-form.uv_autoplay'))) {
+
+            } else {
+                $parameters .= ' autoplay';
+            }
+
+            if (empty($this->config->get('plugins.video-form.uv_controls'))) {
+
+            } else {
+                $parameters .= ' controls';
+            }
+
+            if (empty($this->config->get('plugins.video-form.uv_loop'))) {
+
+            } else {
+                $parameters .= ' loop';
+            }
+
+            if (empty($this->config->get('plugins.video-form.uv_muted'))) {
+
+            } else {
+                $parameters .= ' muted';
+            }
+
+            if (empty($this->config->get('plugins.video-form.uv_playsinline'))) {
+
+            } else {
+                $parameters .= ' playsinline';
+            }
+
+
+            if (empty($page->header()->uv_image)) {
+
+            } else {
+                sort($page->header()->uv_image);
+                if (!empty($page->header()->uv_image[0]['path'])) {
+                    $parameters .= ' poster="' . $page->header()->uv_image[0]['path'] . '"';
+                }
+            }
+
+            $video_content = '<div class="video-form">';
+            $video_content .= '<div class="video-form-uv">';
+            $video_content .= '<video src="'.$page->header()->uv_video[0]['path'].'" '.$parameters.'></video>';
+            $video_content .= '</div>';
+            $video_content .= '</div>';
+
+            $page->setRawContent($page->content() . $video_content);
+
+            $this->grav['assets']->add('plugin://video-form/css/video-form.css');
+
+
         }
 
     }

@@ -3,5 +3,6 @@
 1. [](#new)
     * Initial release
     * Youtube video form field to the content tab
+    * Upload mp4 Video and Preview Image form field to the content tab
     
 

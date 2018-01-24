@@ -18,3 +18,9 @@ yt_modestbranding: false
 yt_origin: true
 yt_rel: false
 yt_showinfo: true
+uv_enabled: true
+uv_autoplay: false
+uv_controls: true
+uv_loop: false
+uv_muted: false
+uv_playsinline: true
